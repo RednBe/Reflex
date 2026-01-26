@@ -44,5 +44,4 @@ public class ControlerMenager : MonoBehaviour, IPointerDownHandler
             GetComponent<SpriteRenderer>().color = Color.darkRed;
         }
     }
-
 }

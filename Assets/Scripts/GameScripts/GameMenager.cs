@@ -21,6 +21,10 @@ public class GameMenager : MonoBehaviour
 
     private IEnumerator AdjustControlers()
     {
+
+        while (PlayerMenager.instance == null)
+            yield return null;
+
         while (PlayerMenager.instance.isGameOver == false)
         {
             byte random = (byte)Random.Range(0, 3);
