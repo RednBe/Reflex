@@ -41,9 +41,9 @@ public class MenuMenager : MonoBehaviour
 
     public void OpenSettingsMenu()
     {
-        waitTimeInput.text = WaitTime.ToString();
-        maxCorrectsInput.text = MaxCorrects.ToString();
-        maxMistakesInput.text = MaxMistakes.ToString();
+        waitTimeInput.text = CurrentWaitTime.ToString();
+        maxCorrectsInput.text = CurrentMaxCorrects.ToString();
+        maxMistakesInput.text = CurrentMaxMistakes.ToString();
 
         settingsMenu.SetActive(true);
     }
