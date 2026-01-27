@@ -63,6 +63,8 @@ public class MenuMenager : MonoBehaviour
         if(string.IsNullOrEmpty(waitTimeInput.text) || string.IsNullOrEmpty(maxCorrectsInput.text) || string.IsNullOrEmpty(maxMistakesInput.text)) return;
 
         WaitTime = float.Parse(waitTimeInput.text);
+
+        if (int.Parse(maxCorrectsInput.text) > 100 || int.Parse(maxMistakesInput.text) > 100) return;
         MaxCorrects = sbyte.Parse(maxCorrectsInput.text);
         MaxMistakes = sbyte.Parse(maxMistakesInput.text);
 

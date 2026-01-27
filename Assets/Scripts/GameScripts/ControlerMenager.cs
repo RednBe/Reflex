@@ -19,8 +19,8 @@ public class ControlerMenager : MonoBehaviour, IPointerDownHandler
     {
         if (isActive)
         {
-            PlayerMenager.instance.IncreaseCorrects();
             ToggleActive();
+            PlayerMenager.instance.IncreaseCorrects();
         }
         else
             PlayerMenager.instance.IncreaseMistakes();
