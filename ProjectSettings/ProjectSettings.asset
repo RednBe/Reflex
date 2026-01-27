@@ -40,7 +40,9 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: -3518531388729523346, guid: b21166132b8c13d4ea9d33597498ed12, type: 3}
+  - logo: {fileID: -1375074141850251143, guid: 1bef4c0f3ae71004982b55afb57a8b28, type: 3}
+    duration: 2
+  - logo: {fileID: 5407545238877244549, guid: f1041511e835879419407ab4b604cb42, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: b21166132b8c13d4ea9d33597498ed12, type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -145,7 +147,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1.0.1
+  bundleVersion: 1.1.2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -400,6 +402,9 @@ PlayerSettings:
       m_SubKind: 
   m_BuildTargetBatching:
   - m_BuildTarget: Android
+    m_StaticBatching: 1
+    m_DynamicBatching: 0
+  - m_BuildTarget: Standalone
     m_StaticBatching: 1
     m_DynamicBatching: 0
   m_BuildTargetShaderSettings: []
