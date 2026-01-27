@@ -33,7 +33,8 @@ public class GameMenager : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
             if (random == 0)
             {
-                rightControler.ToggleActive();
+                if (!PlayerMenager.instance.isGameOver)
+                    rightControler.ToggleActive();
                 rightCounter.isReseted = false;
 
                 yield return new WaitForSeconds(WaitTime);
@@ -46,7 +47,8 @@ public class GameMenager : MonoBehaviour
             }
             else if (random == 1)
             {
-                leftControler.ToggleActive();
+                if (!PlayerMenager.instance.isGameOver)
+                    leftControler.ToggleActive();
                 leftCounter.isReseted = false;
 
                 yield return new WaitForSeconds(WaitTime);
@@ -59,8 +61,11 @@ public class GameMenager : MonoBehaviour
             }
             else if (random == 2)
             {
-                rightControler.ToggleActive();
-                leftControler.ToggleActive();
+                if (!PlayerMenager.instance.isGameOver)
+                {
+                    rightControler.ToggleActive();
+                    leftControler.ToggleActive();
+                }
 
                 rightCounter.isReseted = false;
                 leftCounter.isReseted = false;

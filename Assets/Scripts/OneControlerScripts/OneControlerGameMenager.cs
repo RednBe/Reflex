@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,7 +28,8 @@ public class OneControlerGameMenager : MonoBehaviour
             random = Random.Range(1f, 3f);
             yield return new WaitForSeconds(random);
 
-            controler.ToggleActive();
+            if (!PlayerMenager.instance.isGameOver)
+                controler.ToggleActive();
 
             yield return new WaitForSeconds(WaitTime);
 
