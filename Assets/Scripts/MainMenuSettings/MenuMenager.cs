@@ -75,4 +75,9 @@ public class MenuMenager : MonoBehaviour
     {
         startMenu.SetActive(true);
     }
+
+    public void CloseStartMenu()
+    {
+        startMenu.SetActive(false);
+    }
 }
