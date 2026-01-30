@@ -18,8 +18,6 @@ public class MenuMenager : MonoBehaviour
     [SerializeField] TMP_InputField maxCorrectsInput;
     [SerializeField] TMP_InputField maxMistakesInput;
 
-    TextAsset settingsJsonField;
-
     public float WaitTime;
     public sbyte MaxCorrects;
     public sbyte MaxMistakes;
@@ -27,16 +25,14 @@ public class MenuMenager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
+        WaitTime = PlayerPrefs.GetFloat("WaitTime", 1f);
+        MaxCorrects = (sbyte)PlayerPrefs.GetInt("MaxCorrects", 15);
+        MaxMistakes = (sbyte)PlayerPrefs.GetInt("MaxMistakes", 3);
+
         CurrentWaitTime = WaitTime;
         CurrentMaxCorrects = MaxCorrects;
         CurrentMaxMistakes = MaxMistakes;
-    }
-
-    private void Start()
-    {
-        settingsJsonField = Resources.Load<TextAsset>("Settings");
-
-        LoadSettingsJsonField();
     }
 
     public void QuitGame()
@@ -81,7 +77,9 @@ public class MenuMenager : MonoBehaviour
         CurrentMaxCorrects = MaxCorrects;
         CurrentMaxMistakes = MaxMistakes;
 
-        AdjustSettingsJsonField();
+        PlayerPrefs.SetFloat("WaitTime", WaitTime);
+        PlayerPrefs.SetInt("MaxCorrects", MaxCorrects);
+        PlayerPrefs.SetInt("MaxMistakes", MaxMistakes);
     }
 
     public void OpenStartMenu()
@@ -92,24 +90,6 @@ public class MenuMenager : MonoBehaviour
     public void CloseStartMenu()
     {
         startMenu.SetActive(false);
-    }
-
-    private void LoadSettingsJsonField()
-    {
-        if (settingsJsonField == null) return;
-
-        WaitTime = JsonUtility.FromJson<SettingsDataWrapper>(settingsJsonField.text).waitTime;
-        MaxCorrects = JsonUtility.FromJson<SettingsDataWrapper>(settingsJsonField.text).maxCorrects;
-        MaxMistakes = JsonUtility.FromJson<SettingsDataWrapper>(settingsJsonField.text).maxMistakes;
-    }
-
-    private void AdjustSettingsJsonField()
-    {
-        if (settingsJsonField == null) return;
-
-        JsonUtility.FromJson<SettingsDataWrapper>(settingsJsonField.text).waitTime = WaitTime;
-        JsonUtility.FromJson<SettingsDataWrapper>(settingsJsonField.text).maxCorrects = MaxCorrects;
-        JsonUtility.FromJson<SettingsDataWrapper>(settingsJsonField.text).maxMistakes = MaxMistakes;
     }
 }
 
