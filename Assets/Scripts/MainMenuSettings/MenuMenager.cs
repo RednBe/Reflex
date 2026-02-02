@@ -16,6 +16,7 @@ public class MenuMenager : MonoBehaviour
 
     [Header("PlayerValues")]
     [SerializeField] TextMeshProUGUI txtAverage;
+    [SerializeField] TextMeshProUGUI txtBest;
 
     [Header("Inputs")]
     [SerializeField] TMP_InputField waitTimeInput;
@@ -104,5 +105,22 @@ public class MenuMenager : MonoBehaviour
     public void UpdateAverageText()
     {
         txtAverage.text = AverageMenager.GetAverage().ToString("F2");
+    }
+
+    public void ResetAverage()
+    {
+        AverageMenager.instance.ResetAverage();
+        UpdateAverageText();
+    }
+
+    public void UpdateBestText()
+    {
+        txtBest.text = BestMenager.instance.GetBest().ToString("F2");
+    }
+
+    public void ResetBest()
+    {
+        BestMenager.instance.ResetBest();
+        UpdateBestText();
     }
 }
