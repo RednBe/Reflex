@@ -17,6 +17,9 @@ public class OneControlerGameMenager : MonoBehaviour
 
     private void Start()
     {
+        controler.isActive = false;
+        PlayerMenager.instance.isGameOver = false;
+
         WaitTime = MenuMenager.CurrentWaitTime;
         StartCoroutine(AdjustControler());
     }

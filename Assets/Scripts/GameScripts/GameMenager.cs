@@ -15,6 +15,10 @@ public class GameMenager : MonoBehaviour
 
     private void Start()
     {
+        rightControler.isActive = false;
+        leftControler.isActive = false;
+        PlayerMenager.instance.isGameOver = false;
+
         WaitTime = MenuMenager.CurrentWaitTime;
         StartCoroutine(AdjustControlers());
     }
