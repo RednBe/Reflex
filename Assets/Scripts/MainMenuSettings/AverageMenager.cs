@@ -9,11 +9,7 @@ public class AverageMenager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Start()
-    {
-        Average = PlayerPrefs.GetFloat("Average", 0);
+        Average = PlayerPrefs.GetFloat("Average", 0f);
     }
 
     public void SaveAverage()

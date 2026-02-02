@@ -11,10 +11,16 @@ public class AvrageMemory : MonoBehaviour
     }
 
     List<float> scores = new List<float>();
+    private bool isSetted;
 
     public void AddScore(float score)
     {
         scores.Add(score);
+    }
+
+    private void Update()
+    {
+        SetAverage();
     }
 
     public float GetAvrage()
@@ -26,5 +32,19 @@ public class AvrageMemory : MonoBehaviour
         }
         float avrage = total / scores.Count;
         return avrage;
+    }
+
+    public void SetAverage()
+    {
+        if (!PlayerMenager.instance.isGameOver && !isSetted) return;
+
+        AverageMenager.instance.Average = GetAvrage();
+        AverageMenager.instance.SaveAverage();
+        isSetted = true;
+    }
+
+    public void ResetMemory()
+    {
+        scores.Clear();
     }
 }

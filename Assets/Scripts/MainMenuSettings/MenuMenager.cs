@@ -103,6 +103,6 @@ public class MenuMenager : MonoBehaviour
 
     public void UpdateAverageText()
     {
-        txtAverage.text = "Average: " + AverageMenager.GetAverage().ToString("F2");
+        txtAverage.text = AverageMenager.GetAverage().ToString("F2");
     }
 }
