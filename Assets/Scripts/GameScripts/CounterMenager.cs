@@ -24,6 +24,7 @@ public class CounterMenager : MonoBehaviour
             isScoreControled = true;
             score = count;
             AvrageMemory.instance.AddScore(score);
+            BestMemory.instance.currentScore = score;
         }
     }
 

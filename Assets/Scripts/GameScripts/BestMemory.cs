@@ -5,7 +5,7 @@ public class BestMemory : MonoBehaviour
     public static BestMemory instance;
 
     float bestScore;
-    float currentScore;
+    public float currentScore;
 
     private void Awake()
     {
@@ -19,9 +19,16 @@ public class BestMemory : MonoBehaviour
 
     public void SetBest()
     {
-        if (currentScore >= bestScore && currentScore != 0) return;
+        if (bestScore == 0)
+        {
+            bestScore = currentScore;
+        }
+        else if (currentScore < bestScore)
+        {
+            bestScore = currentScore;
+        }
 
-        bestScore = currentScore;
         BestMenager.instance.BestScore = bestScore;
+        BestMenager.instance.SaveBest();
     }
 }

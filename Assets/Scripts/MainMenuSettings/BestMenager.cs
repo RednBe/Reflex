@@ -9,6 +9,7 @@ public class BestMenager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        BestScore = PlayerPrefs.GetFloat("BestScore", 0f);
     }
 
     public void SaveBest()

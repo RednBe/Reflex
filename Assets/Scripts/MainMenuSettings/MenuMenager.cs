@@ -43,6 +43,7 @@ public class MenuMenager : MonoBehaviour
     private void Start()
     {
         UpdateAverageText();
+        UpdateBestText();
     }
 
     public void QuitGame()
