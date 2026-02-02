@@ -9,9 +9,13 @@ public class MenuMenager : MonoBehaviour
     public static sbyte CurrentMaxCorrects = 15;
     public static sbyte CurrentMaxMistakes = 3;
 
+    [Header("Menus")]
     [SerializeField] GameObject settingsMenu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject startMenu;
+
+    [Header("PlayerValues")]
+    [SerializeField] TextMeshProUGUI txtAverage;
 
     [Header("Inputs")]
     [SerializeField] TMP_InputField waitTimeInput;
@@ -33,6 +37,11 @@ public class MenuMenager : MonoBehaviour
         CurrentWaitTime = WaitTime;
         CurrentMaxCorrects = MaxCorrects;
         CurrentMaxMistakes = MaxMistakes;
+    }
+
+    private void Start()
+    {
+        UpdateAverageText();
     }
 
     public void QuitGame()
@@ -91,11 +100,9 @@ public class MenuMenager : MonoBehaviour
     {
         startMenu.SetActive(false);
     }
-}
 
-internal class SettingsDataWrapper
-{
-    public float waitTime;
-    public sbyte maxCorrects;
-    public sbyte maxMistakes;
+    public void UpdateAverageText()
+    {
+        txtAverage.text = "Average: " + AverageMenager.GetAverage().ToString("F2");
+    }
 }
