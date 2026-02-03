@@ -15,6 +15,11 @@ public class OneControlerGameMenager : MonoBehaviour
     float WaitTime = 1f;
     float random;
 
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
     private void Start()
     {
         controler.isActive = false;

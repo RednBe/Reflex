@@ -13,6 +13,11 @@ public class GameMenager : MonoBehaviour
 
     public float WaitTime = MenuMenager.CurrentWaitTime;
 
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
+
     private void Start()
     {
         rightControler.isActive = false;
